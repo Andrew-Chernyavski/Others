@@ -33,10 +33,8 @@ public class Main {
             Sides.add(new Pair(x, y + 1));
             Sides.add(new Pair(x + 1, y));
             Sides.add(new Pair(x - 1, y));
-            boolean isNeighbour = false;
             for (Pair side : Sides) {
                 if (isAvailable(side, Lab)) { //клетка доступна
-                    isNeighbour = true;
                     if (Pair.eq(side, finish)) {
                         return steps + 1;//если вдруг пробрались таки до финиша - сигнализируем и возвращаем количество шагов до него
                     }
@@ -71,15 +69,12 @@ public class Main {
 
     public static void main(String[] args) {
         final int[][] Lab = new int[height][width];
-        List<Pair> Blocks = new ArrayList<Pair>();
         final Pair start = new Pair(0, 9);
         Lab[start.getX()][start.getY()] = -2;
         final Pair finish = new Pair(9, 0);
         Lab[finish.getX()][finish.getY()] = -2;
         for (int i = 0; i < height - 1; i++) {//выстроим пару стенок внутри лабиринта
-        Blocks.add(new Pair(i,5));
         Lab[i][5] = -1;
-        Blocks.add(new Pair(i,3));
         Lab[i + 1][3] = -1;
         }
         System.out.print("Координаты стартовой точки (нумерация с 0):");
