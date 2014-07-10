@@ -103,7 +103,7 @@ void unite(QVector<rectangle> &Recs, int i, int j)
             rectangle rec;
             rec.y = Recs[i].y;
             rec.height = Recs[j].height;
-            rec.x = Recs[i].x;
+            rec.x = Recs[j].x;
             rec.width = max(Recs[j].x + Recs[j].width, Recs[i].x + Recs[i].width) - Recs[j].x;
             Recs.remove(i);
             Recs.remove(j);
